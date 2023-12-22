@@ -13,7 +13,7 @@ namespace systemogloszeniowyM
         private readonly SQLiteAsyncConnection _database;
         public BazaDanych(string dbPath)
         {
-            _database=new SQLiteAsyncConnection(dbPath);
+            _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Aplikacja>().Wait();
             _database.CreateTableAsync<Doswiadczenie>().Wait();
             _database.CreateTableAsync<Firma>().Wait();
@@ -25,9 +25,44 @@ namespace systemogloszeniowyM
             _database.CreateTableAsync<Uzytkownik>().Wait();
             _database.CreateTableAsync<Wyksztalcenie>().Wait();
         }
-        public int StworzUzytkownika(Uzytkownik uzytkownik)
+        public async Task<int> StworzUzytkownika(Uzytkownik uzytkownik)
         {
-            return _database.InsertAsync(uzytkownik).Result;
+            if (await CzyEmailJuzIstnieje(uzytkownik.Email))
+            { 
+                return -1;
+            }
+            return await _database.InsertAsync(uzytkownik);
         }
+
+        public async Task<bool> CzyEmailJuzIstnieje(string email)
+        {
+            var existingUser = await _database.Table<Uzytkownik>().FirstOrDefaultAsync(u => u.Email == email);
+            return existingUser != null;
+        }
+        public async Task<bool> CzyEmailJuzIstniejeF(string email)
+        {
+            var existingUser = await _database.Table<Firma>().FirstOrDefaultAsync(u => u.email == email);
+            return existingUser != null;
+        }
+        public async Task<Uzytkownik> ZalogujUzytkownika(string email, string haslo)
+        {
+            return await _database.Table<Uzytkownik>().FirstOrDefaultAsync(u => u.Email == email && u.Haslo == haslo);
+        }
+        public async Task<int> StworzFirme(Firma firma)
+        {
+            if (await CzyEmailJuzIstniejeF(firma.email))
+            {
+                return -1;
+            }
+            return await _database.InsertAsync(firma);
+        }
+
+
+        public async Task<Firma> ZalogujFirme(string email, string haslo)
+        {
+            return await _database.Table<Firma>().FirstOrDefaultAsync(u => u.email == email && u.haslo == haslo);
+        }
+
+
     }
 }

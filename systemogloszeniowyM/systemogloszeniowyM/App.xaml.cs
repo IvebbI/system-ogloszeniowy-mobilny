@@ -24,7 +24,7 @@ namespace systemogloszeniowyM
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new RegisterPage());
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

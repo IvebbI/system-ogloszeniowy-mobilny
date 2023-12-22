@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace systemogloszeniowyM
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StronaGlowna : ContentPage
+    public partial class StronaGlowna : TabbedPage
     {
         public StronaGlowna()
         {

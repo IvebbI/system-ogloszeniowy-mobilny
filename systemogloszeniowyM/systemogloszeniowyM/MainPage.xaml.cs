@@ -14,5 +14,15 @@ namespace systemogloszeniowyM
         {
             InitializeComponent();
         }
+
+        private void NawigacjaUzytkownik(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LoginPage());  
+        }
+
+        private void NawigacjaFirma(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LoginPageF());
+        }
     }
 }
