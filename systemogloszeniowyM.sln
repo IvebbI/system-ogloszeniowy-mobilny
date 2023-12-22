@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "systemogloszeniowyM.Android", "systemogloszeniowyM\systemogloszeniowyM.Android\systemogloszeniowyM.Android.csproj", "{3B5E31CB-BAF0-4E36-B96D-AE7B711D3B86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "systemogloszeniowyM", "systemogloszeniowyM\systemogloszeniowyM\systemogloszeniowyM.csproj", "{BAD994E0-39B3-415F-8BD4-19CC6FAFB07D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B5E31CB-BAF0-4E36-B96D-AE7B711D3B86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B5E31CB-BAF0-4E36-B96D-AE7B711D3B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B5E31CB-BAF0-4E36-B96D-AE7B711D3B86}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3B5E31CB-BAF0-4E36-B96D-AE7B711D3B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B5E31CB-BAF0-4E36-B96D-AE7B711D3B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B5E31CB-BAF0-4E36-B96D-AE7B711D3B86}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BAD994E0-39B3-415F-8BD4-19CC6FAFB07D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD994E0-39B3-415F-8BD4-19CC6FAFB07D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD994E0-39B3-415F-8BD4-19CC6FAFB07D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BAD994E0-39B3-415F-8BD4-19CC6FAFB07D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD994E0-39B3-415F-8BD4-19CC6FAFB07D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAD994E0-39B3-415F-8BD4-19CC6FAFB07D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B7C4A44-5DAD-4863-9E80-8C736440781F}
+	EndGlobalSection
+EndGlobal
