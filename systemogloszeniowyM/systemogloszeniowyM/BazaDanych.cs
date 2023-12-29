@@ -117,7 +117,25 @@ namespace systemogloszeniowyM
             }
         }
 
+        public async Task ZapiszDaneDoswiadczenia(Doswiadczenie doswiadczenie)
+        {
+            try
+            {
+                var result = await _database.InsertOrReplaceAsync(doswiadczenie);
+                if (result != 0)
+                {
 
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Błąd", "Nie udało się zapisać danych Doswiadczenia. Result = 0", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Błąd", $"Wystąpił błąd podczas zapisywania danych Doswiadczenia: {ex.Message}", "OK");
+            }
+        }
 
 
 

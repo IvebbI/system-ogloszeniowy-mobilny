@@ -69,39 +69,41 @@
 
                 <Frame BackgroundColor="LightGreen" CornerRadius="20">
                     <StackLayout>
-                        <Label Text="Doświadczenie" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" />
 
-                        <ListView x:Name="DoswiadczenieListView" IsVisible="true">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <StackLayout>
-                                            <Image Source="{Binding Stanowisko}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" HorizontalOptions="Center"/>
-                                            <Label Text="Email:" FontAttributes="Bold"/>
-                                            <Label Text="{Binding NazwaFirmy}"/>
-                                            <Label Text="Imię:" FontAttributes="Bold"/>
-                                            <Label Text="{Binding Lokalizacja}"/>
-                                            <Label Text="Nazwisko:" FontAttributes="Bold"/>
-                                            <Label Text="{Binding OkresZatrudnieniaOd}"/>
-                                            <Label Text="Data Urodzenia:" FontAttributes="Bold" Margin="0,20,10,0"/>
-                                            <Label Text="{Binding OkresZatrudnieniaDo}" />
-                                            <Label Text="Telefon:" FontAttributes="Bold" Margin="0,20,10,0"/>
-                                            <Label Text="{Binding Obowiazki}" />
-                                            <Button Text="Edytuj Dane Doświadczenia" BackgroundColor="Beige" CornerRadius="20" Clicked="przyciskdoedytacje_Clicked"/>
-                                        </StackLayout>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
 
-                        <StackLayout x:Name="DoswiadczenieFormularz" IsVisible="false">
-                            <!-- Dodaj pola edycji w zależności od potrzeb -->
-                            <Button Text="Anuluj" BackgroundColor="Beige" CornerRadius="20" Clicked="Anuluj"/>
-                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="PotwierdzEdytacje"/>
+                        <StackLayout x:Name="DoswiadczenieUzytkownika" IsVisible="true">
+                            <Label Text="Stanowisko:" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                            <Image Source="{Binding Stanowisko}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" HorizontalOptions="Center"/>
+                            <Label Text="Nazwa Firmy:" FontAttributes="Bold"/>
+                            <Label Text="{Binding NazwaFirmy}"/>
+                            <Label Text="Lokalizacja:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Lokalizacja}"/>
+                            <Label Text="Okres zatrudnienia od:" FontAttributes="Bold"/>
+                            <Label Text="{Binding OkresZatrudnieniaOd }"/>
+                            <Label Text="Okres zatrudnienia do:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Label Text="{Binding OkresZatrudnieniaDo }" />
+                            <Label Text="Obowiązki:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Label Text="{Binding Obowiazki }" />
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="przyciskdoedytacjeD_Clicked"/>
+                        </StackLayout>
+                        <StackLayout x:Name="DoswiadczenieUzytkownikaFormularz" IsVisible="false">
+                            <Label Text="Stanowisko:" FontAttributes="Bold"/>
+                            <Entry x:Name="StanowiskoEntry" Text="{Binding Stanowisko}"/>
+                            <Label Text="Nazwa Firmy:" FontAttributes="Bold"/>
+                            <Entry x:Name="NazwaFirmyEntry" Text="{Binding NazwaFirmy}"/>
+                            <Label Text="Lokalizacja:" FontAttributes="Bold"/>
+                            <Entry x:Name="LokalizacjaEntry" Text="{Binding Lokalizacja}"/>
+                            <Label Text="OkresZatrudnieniaOd:" FontAttributes="Bold"/>
+                            <Entry x:Name="OkresZatrudnieniaOdEntry" Text="{Binding OkresZatrudnieniaOd}"/>
+                            <Label Text="OkresZatrudnieniaDo:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Entry x:Name="OkresZatrudnieniaDoEntry" Text="{Binding OkresZatrudnieniaDo}"/>
+                            <Label Text="Obowiazki:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Entry x:Name="ObowiazkiEntry" Text="{Binding Obowiazki}" />
+                            <Button Text="Anuluj" BackgroundColor="Beige" CornerRadius="20" Clicked="AnulujD"/>
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="PotwierdzEdytacjeD"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-
             </StackLayout>
         </StackLayout>
     </ScrollView>

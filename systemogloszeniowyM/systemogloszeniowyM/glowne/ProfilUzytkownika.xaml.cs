@@ -40,7 +40,7 @@ namespace systemogloszeniowyM.glowne
                     var informacje =  _dataAccess.PobierzDaneDoswiadczenia(_sesja);
                     if (informacje != null)
                     {
-                        DoswiadczenieListView.ItemsSource = informacje;
+                        DoswiadczenieUzytkownika.BindingContext = informacje;
                     }
                 }
             }
@@ -54,18 +54,18 @@ namespace systemogloszeniowyM.glowne
         {
             try
             {
-                DoswiadczenieListView.IsVisible = false;
-                DoswiadczenieFormularz.IsVisible = true;
+                DoswiadczenieUzytkownika.IsVisible = false;
+                DoswiadczenieUzytkownikaFormularz.IsVisible = true;
                 var informacje =  _dataAccess.PobierzDaneDoswiadczenia(_sesja);
 
                 if (informacje != null)
                 {
-                    DoswiadczenieFormularz.BindingContext = informacje;
+                    DoswiadczenieUzytkownikaFormularz.BindingContext = informacje;
                 }
             }
             catch (Exception ex)
             {
-                DisplayAlert("Błąd", $"Wystąpił błąd podczas edycji danych doświadczenia: {ex.Message}", "OK");
+                DisplayAlert("Błąd", $"Wystąpił błąd podczas edycji danych doświadczeniaaaa111: {ex.Message}", "OK");
             }
         }
 
@@ -163,6 +163,67 @@ namespace systemogloszeniowyM.glowne
                 await Application.Current.MainPage.DisplayAlert("Błąd", $"Wystąpił błąd podczas potwierdzania edycji danych użytkownika: {ex.Message}", "OK");
             }
         }
+        private async void PotwierdzEdytacjeD(object sender, EventArgs e)
+        {
+            try
+            {
+                var informacje = (Doswiadczenie)DaneUzytkownikaFormularz.BindingContext;
+
+                if (informacje != null)
+                {
+                    informacje.Stanowisko = StanowiskoEntry.Text;
+                    informacje.NazwaFirmy = NazwaFirmyEntry.Text;
+                    informacje.Lokalizacja = LokalizacjaEntry.Text;
+                    informacje.OkresZatrudnieniaOd = OkresZatrudnieniaOdEntry.Text;
+                    informacje.OkresZatrudnieniaDo = OkresZatrudnieniaDoEntry.Text;
+                    informacje.Obowiazki = ObowiazkiEntry.Text;
+
+                    await _dataAccess.ZapiszDaneDoswiadczenia(informacje);
+                    OdswiezDaneDoswiadczenia(); 
+                }
+                else
+                {
+                    var noweDoswiadczenie = new Doswiadczenie
+                    {
+                        Stanowisko = StanowiskoEntry.Text,
+                        NazwaFirmy = NazwaFirmyEntry.Text,
+                        Lokalizacja = LokalizacjaEntry.Text,
+                        OkresZatrudnieniaOd = OkresZatrudnieniaOdEntry.Text,
+                        OkresZatrudnieniaDo = OkresZatrudnieniaDoEntry.Text,
+                        Obowiazki = ObowiazkiEntry.Text?.ToString()
+                    };
+
+                    await _dataAccess.ZapiszDaneDoswiadczenia(noweDoswiadczenie);
+                    OdswiezDaneDoswiadczenia();
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Błąd", $"Wystąpił błąd podczas potwierdzania edycji danych użytkownika: {ex.Message}", "OK");
+            }
+        }
+
+        private async void OdswiezDaneDoswiadczenia()
+        {
+            try
+            {
+                _sesja = await _dataAccess.PobierzSesje();
+                if (_sesja != null)
+                {
+                    var informacje =  _dataAccess.PobierzDaneDoswiadczenia(_sesja);
+                    if (informacje != null)
+                    {
+                        DoswiadczenieUzytkownikaFormularz.IsVisible = false;
+                        DoswiadczenieUzytkownika.BindingContext = informacje;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Błąd", $"Wystąpił błąd podczas pobierania danych doświadczenia: {ex.Message}", "OK");
+            }
+        }
+
 
 
 
@@ -174,6 +235,18 @@ namespace systemogloszeniowyM.glowne
             {
                 DaneUzytkownikaFormularz.IsVisible = false;
                 DaneUzytkownika.IsVisible = true;
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Błąd", $"Wystąpił błąd podczas anulowania edycji danych użytkownika: {ex.Message}", "OK");
+            }
+        }
+        private void AnulujD(object sender, EventArgs e)
+        {
+            try
+            {
+                DoswiadczenieUzytkownikaFormularz.IsVisible = false;
+                DoswiadczenieUzytkownika.IsVisible = true;
             }
             catch (Exception ex)
             {
