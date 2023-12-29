@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using systemogloszeniowyM.Tabele;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using systemogloszeniowyM.glowne;
 
 namespace systemogloszeniowyM
 {
@@ -31,7 +32,13 @@ namespace systemogloszeniowyM
 
             if (zalogowanyFirma != null)
             {
-                await Navigation.PushAsync(new StronaGlowna());
+                Sesja sesja = new Sesja
+                {
+                    idUzytkownika = zalogowanyFirma.Id,
+                    TypZalogowanego = "Firma"
+                };
+                App.DataAccess.ZapiszSesje(sesja);
+                await Navigation.PushAsync(new Nawigacja());
             }
             else
             {

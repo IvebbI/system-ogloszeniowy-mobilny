@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using systemogloszeniowyM.glowne;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

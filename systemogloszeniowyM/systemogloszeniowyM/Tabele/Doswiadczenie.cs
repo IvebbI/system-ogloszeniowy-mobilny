@@ -13,8 +13,8 @@ namespace systemogloszeniowyM.Tabele
         public string Stanowisko {  get; set; }
         public string NazwaFirmy { get; set; }
         public string Lokalizacja {  get; set; }
-        public DateTime OkresZatrudnieniaOd {  get; set; }
-        public DateTime OkresZatrudnieniaDo { get; set; }
+        public string OkresZatrudnieniaOd {  get; set; }
+        public string OkresZatrudnieniaDo { get; set; }
         public string Obowiazki {  get; set; }  
     }
 }

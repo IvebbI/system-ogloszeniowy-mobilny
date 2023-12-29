@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace systemogloszeniowyM.glowne
+namespace systemogloszeniowyM
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OgloszenieDodaj : TabbedPage
+    public partial class Home : FlyoutPage
     {
-        public OgloszenieDodaj()
+        public Home()
         {
             InitializeComponent();
         }

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="systemogloszeniowyM.glowne.ProfilUzytkownika">
+    <ScrollView>
+        <StackLayout Margin="10">
+
+            <StackLayout>
+
+
+
+                <Frame BackgroundColor="LightGreen" CornerRadius="20">
+                    <StackLayout>
+
+
+                        <StackLayout x:Name="DaneUzytkownika" IsVisible="true">
+                            <Label Text="Dane Użytkownika" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                            <Image Source="{Binding LinkDoZdjecia}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" HorizontalOptions="Center"/>
+                            <Label Text="Email:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Email}"/>
+                            <Label Text="Imię:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Imie}"/>
+                            <Label Text="Nazwisko:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Nazwisko}"/>
+                            <Label Text="Data Urodzenia:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Label Text="{Binding DataUrodzenia}" />
+                            <Label Text="Telefon:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Label Text="{Binding Telefon}" />
+                            <Label Text="Adres:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Label Text="{Binding Adres}"/>
+                            <Label Text="Stanowisko Pracy:" FontAttributes="Bold" Margin="0,17,10,0"/>
+                            <Label Text="{Binding StanowiskoPracy}" />
+                            <Label Text="Opis Pracy:" FontAttributes="Bold" Margin="0,17,10,0"/>
+                            <Label Text="{Binding OpisPracy}" />
+                            <Label Text="Podsumowanie Zawodowe:" FontAttributes="Bold" Margin="0,17,10,0"/>
+                            <Label Text="{Binding PodsumowanieZawodowe}" />
+                            <Label Text="Github Profil:" FontAttributes="Bold" Margin="0,20,0,0"/>
+                            <Label Text="{Binding GithubProfil}" />
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="przyciskdoedytacje_Clicked"/>
+                        </StackLayout>
+                        <StackLayout x:Name="DaneUzytkownikaFormularz" IsVisible="false">
+                            <Label Text="Link do zdjęcia:" FontAttributes="Bold"/>
+                            <Entry x:Name="LinkDoZdjeciaEntry" Text="{Binding LinkDoZdjecia}"/>
+                            <Label Text="Email:" FontAttributes="Bold"/>
+                            <Entry x:Name="EmailEntry" Text="{Binding Email}"/>
+                            <Label Text="Imię:" FontAttributes="Bold"/>
+                            <Entry x:Name="ImieEntry" Text="{Binding Imie}"/>
+                            <Label Text="Nazwisko:" FontAttributes="Bold"/>
+                            <Entry x:Name="NazwiskoEntry" Text="{Binding Nazwisko}"/>
+                            <Label Text="Data Urodzenia:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Entry x:Name="DataUrodzeniaEntry" Text="{Binding DataUrodzenia}"/>
+                            <Label Text="Telefon:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Entry x:Name="TelefonEntry" Text="{Binding Telefon}" />
+                            <Label Text="Adres:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Entry x:Name="AdresEntry" Text="{Binding Adres}"/>
+                            <Label Text="Stanowisko Pracy:" FontAttributes="Bold" Margin="0,17,10,0"/>
+                            <Entry x:Name="StanowiskoPracyEntry" Text="{Binding StanowiskoPracy}"/>
+                            <Label Text="Opis Pracy:" FontAttributes="Bold" Margin="0,17,10,0"/>
+                            <Entry x:Name="OpisPracyEntry" Text="{Binding OpisPracy}"/>
+                            <Label Text="Podsumowanie Zawodowe:" FontAttributes="Bold" Margin="0,17,10,0"/>
+                            <Entry x:Name="PodsumowanieZawodoweEntry" Text="{Binding PodsumowanieZawodowe}"/>
+                            <Label Text="Github Profil:" FontAttributes="Bold" Margin="0,20,0,0"/>
+                            <Entry x:Name="GithubProfilEntry" Text="{Binding GithubProfil}"/>
+                            <Button Text="Anuluj" BackgroundColor="Beige" CornerRadius="20" Clicked="Anuluj"/>
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="PotwierdzEdytacje"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="LightGreen" CornerRadius="20">
+                    <StackLayout>
+                        <Label Text="Doświadczenie" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" />
+
+                        <ListView x:Name="DoswiadczenieListView" IsVisible="true">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Image Source="{Binding Stanowisko}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" HorizontalOptions="Center"/>
+                                            <Label Text="Email:" FontAttributes="Bold"/>
+                                            <Label Text="{Binding NazwaFirmy}"/>
+                                            <Label Text="Imię:" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Lokalizacja}"/>
+                                            <Label Text="Nazwisko:" FontAttributes="Bold"/>
+                                            <Label Text="{Binding OkresZatrudnieniaOd}"/>
+                                            <Label Text="Data Urodzenia:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                                            <Label Text="{Binding OkresZatrudnieniaDo}" />
+                                            <Label Text="Telefon:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                                            <Label Text="{Binding Obowiazki}" />
+                                            <Button Text="Edytuj Dane Doświadczenia" BackgroundColor="Beige" CornerRadius="20" Clicked="przyciskdoedytacje_Clicked"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <StackLayout x:Name="DoswiadczenieFormularz" IsVisible="false">
+                            <!-- Dodaj pola edycji w zależności od potrzeb -->
+                            <Button Text="Anuluj" BackgroundColor="Beige" CornerRadius="20" Clicked="Anuluj"/>
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="PotwierdzEdytacje"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

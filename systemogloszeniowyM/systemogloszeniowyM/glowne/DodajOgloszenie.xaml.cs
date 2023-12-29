@@ -9,12 +9,12 @@ using Xamarin.Forms.Xaml;
 
 namespace systemogloszeniowyM.glowne
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MojProfil : TabbedPage
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class DodajOgloszenie : ContentPage
     {
-        public MojProfil()
-        {
-            InitializeComponent();
-        }
-    }
+		public DodajOgloszenie ()
+		{
+			InitializeComponent ();
+		}
+	}
 }

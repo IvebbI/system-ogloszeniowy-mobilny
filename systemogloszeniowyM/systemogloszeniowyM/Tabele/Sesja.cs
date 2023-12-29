@@ -5,12 +5,12 @@ using System.Text;
 
 namespace systemogloszeniowyM.Tabele
 {
-    public class Link
+   public class Sesja
     {
         [PrimaryKey,AutoIncrement]
-        public int Id {  get; set; }
-        public int IdUzytkownika { get;set; }
-        public string LinkUrl {  get; set; }
+        public int Id { get; set; }
+        public int idUzytkownika { get; set; }
+        public string TypZalogowanego {  get; set; }
 
     }
 }

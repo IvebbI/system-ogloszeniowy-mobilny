@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace systemogloszeniowyM
+namespace systemogloszeniowyM.glowne
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StronaGlowna : TabbedPage
+    public partial class StronaGlowna : ContentPage
     {
         public StronaGlowna()
         {

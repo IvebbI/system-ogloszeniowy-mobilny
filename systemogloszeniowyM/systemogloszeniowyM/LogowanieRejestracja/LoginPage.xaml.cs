@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using systemogloszeniowyM.glowne;
 using systemogloszeniowyM.Tabele;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,10 +32,16 @@ namespace systemogloszeniowyM
 
             if (zalogowanyUzytkownik != null)
             {
-                await Navigation.PushAsync(new StronaGlowna());
+                Sesja sesja = new Sesja
+                {
+                    idUzytkownika = zalogowanyUzytkownik.Id,
+                    TypZalogowanego = "Uzytkownik"
+                };
+                App.DataAccess.ZapiszSesje(sesja);
+                await Navigation.PushAsync(new Nawigacja());
             }
             else
-            {
+            {   
                 await DisplayAlert("Błąd!", "Błędny adres e-mail lub hasło.", "Ok");
             }
         }

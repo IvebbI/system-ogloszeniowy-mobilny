@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace systemogloszeniowyM.glowne
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class OfertyPracy : ContentPage
-    {
-		public OfertyPracy ()
+	public partial class Nawigacja : TabbedPage
+	{
+		public Nawigacja ()
 		{
 			InitializeComponent ();
 		}

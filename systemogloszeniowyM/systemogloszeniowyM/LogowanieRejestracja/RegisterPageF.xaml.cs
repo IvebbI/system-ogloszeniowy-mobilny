@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using systemogloszeniowyM.Tabele;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using systemogloszeniowyM.glowne;
 
 namespace systemogloszeniowyM
 {
@@ -16,7 +17,7 @@ namespace systemogloszeniowyM
     public partial class RegisterPageF : ContentPage
     {
         private string generatedVerificationCode; 
-        private Uzytkownik uzytkownik;
+        private Firma firma;
 
         public RegisterPageF()
         {
@@ -41,9 +42,9 @@ namespace systemogloszeniowyM
                 return;
             }
 
-            uzytkownik = new Uzytkownik();
-            uzytkownik.Email = email;
-            uzytkownik.Haslo = haslo;
+            firma = new Firma();
+           firma.email = email;
+            firma.haslo = haslo;
 
             if (await App.DataAccess.CzyEmailJuzIstniejeF(email))
             {
@@ -138,8 +139,8 @@ namespace systemogloszeniowyM
             if (wprowadzonyKod == generatedVerificationCode)
             {
                 await DisplayAlert("Sukces!", "Kod weryfikacyjny poprawny. Konto zostało zarejestrowane.", "OK");
-                await App.DataAccess.StworzUzytkownika(uzytkownik);
-                await Navigation.PushAsync(new StronaGlowna());
+                await App.DataAccess.StworzFirme(firma);
+                await Navigation.PushAsync(new Nawigacja());
             }
             else
             {

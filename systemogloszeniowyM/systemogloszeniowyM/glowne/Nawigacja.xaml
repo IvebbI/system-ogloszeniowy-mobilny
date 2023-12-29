@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:systemogloszeniowyM.glowne"
+             x:Class="systemogloszeniowyM.glowne.Nawigacja"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             BackgroundColor="Beige"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             UnselectedTabColor="White"
+             SelectedTabColor="Black"
+             BarTextColor="White"
+             NavigationPage.HasNavigationBar="False">
+
+    <TabbedPage.Children>
+        <local:StronaGlowna Title="Strona Główna">
+            <local:StronaGlowna.IconImageSource>
+                <FileImageSource File="ikonadomku.png"/>
+            </local:StronaGlowna.IconImageSource>
+        </local:StronaGlowna>
+
+        <local:OfertyPracy Title="Oferty Pracy">
+            <local:OfertyPracy.IconImageSource>
+                <FileImageSource File="ikonaa.png"/>
+            </local:OfertyPracy.IconImageSource>
+        </local:OfertyPracy>
+
+        <local:ProfilUzytkownika Title="Profil Użytkownika">
+            <local:ProfilUzytkownika.IconImageSource>
+                <FileImageSource File="ikonaprofilu.jpg"/>
+            </local:ProfilUzytkownika.IconImageSource>
+        </local:ProfilUzytkownika>
+
+        <local:DodajOgloszenie Title="Dodaj Ogłoszenie">
+            <local:DodajOgloszenie.IconImageSource>
+                <FileImageSource File="dodajogloszeniezdj.jpg"/>
+            </local:DodajOgloszenie.IconImageSource>
+        </local:DodajOgloszenie>
+    </TabbedPage.Children>
+
+</TabbedPage>

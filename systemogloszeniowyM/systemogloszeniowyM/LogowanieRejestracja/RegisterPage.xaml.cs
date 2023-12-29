@@ -7,6 +7,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using systemogloszeniowyM.Tabele;
+using systemogloszeniowyM.glowne;
 
 namespace systemogloszeniowyM
 {
@@ -137,7 +138,7 @@ namespace systemogloszeniowyM
             {
                 await DisplayAlert("Sukces!", "Kod weryfikacyjny poprawny. Konto zostało zarejestrowane.", "OK");
                 await App.DataAccess.StworzUzytkownika(uzytkownik);
-                await Navigation.PushAsync(new StronaGlowna());
+                await Navigation.PushAsync(new LoginPage());
             }
             else
             {
