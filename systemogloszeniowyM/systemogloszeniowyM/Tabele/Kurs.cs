@@ -12,6 +12,6 @@ namespace systemogloszeniowyM.Tabele
         public int IdUzytkownika { get; set; }
         public string NazwaSzkolenia { get; set; }
         public string Organizator { get;set; }
-        public DateTime Data { get; set; }    
+        public string Data { get; set; }    
     }
 }

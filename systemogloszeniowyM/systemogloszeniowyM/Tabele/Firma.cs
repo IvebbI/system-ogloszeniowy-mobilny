@@ -14,5 +14,6 @@ namespace systemogloszeniowyM.Tabele
         public string Nazwa { get; set; }
         public string Adres { get; set; }
         public string StronaInternetowa { get; set; }
+        public string LinkDoZdjecia { get; set; }
     }
 }

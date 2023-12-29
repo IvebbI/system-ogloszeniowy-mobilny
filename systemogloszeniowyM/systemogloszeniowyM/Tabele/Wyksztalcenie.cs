@@ -14,8 +14,8 @@ namespace systemogloszeniowyM.Tabele
         public string Miejscowosc { get; set; }
         public string PoziomWyksztalcenia {  get; set; }
         public string Kierunek { get; set; }
-        public DateTime UczestniczylOd {  get; set; }
-        public DateTime UczestniczylDo {  get; set; }
+        public string UczestniczylOd {  get; set; }
+        public string UczestniczylDo {  get; set; }
 
     }
 }

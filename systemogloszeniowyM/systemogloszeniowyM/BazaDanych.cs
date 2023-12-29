@@ -31,7 +31,7 @@ namespace systemogloszeniowyM
         public async Task<int> StworzUzytkownika(Uzytkownik uzytkownik)
         {
             if (await CzyEmailJuzIstnieje(uzytkownik.Email))
-            { 
+            {
                 return -1;
             }
             return await _database.InsertAsync(uzytkownik);
@@ -69,19 +69,97 @@ namespace systemogloszeniowyM
             }
             return await _database.InsertAsync(firma);
         }
-        public  List <Doswiadczenie> PobierzDaneDoswiadczenia(Sesja sesja)
+        public Doswiadczenie PobierzDaneDoswiadczenia(Sesja sesja)
         {
             try
             {
-                return  _database.Table<Doswiadczenie>().Where(item => item.IdUzytkownika == sesja.idUzytkownika).ToListAsync().Result;
+                return _database.Table<Doswiadczenie>().Where(item => item.IdUzytkownika == sesja.idUzytkownika).FirstAsync().Result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return null;
             }
 
         }
+        public Jezyk PobierzDaneJezyku(Sesja sesja)
+        {
+            try
+            {
+                return _database.Table<Jezyk>().Where(item => item.IdUzytkownika == sesja.idUzytkownika).FirstAsync().Result;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
 
+        }
+        public Umiejetnosc PobierzDaneUmiejetnosci(Sesja sesja)
+        {
+            try
+            {
+                return _database.Table<Umiejetnosc>().Where(item => item.IdUzytkownika == sesja.idUzytkownika).FirstAsync().Result;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+        public Wyksztalcenie PobierzDaneWyksztalcenia(Sesja sesja)
+        {
+            try
+            {
+                return _database.Table<Wyksztalcenie>().Where(item => item.IdUzytkownika == sesja.idUzytkownika).FirstAsync().Result;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+        public Kurs PobierzDaneKursu(Sesja sesja)
+        {
+            try
+            {
+                return _database.Table<Kurs>().Where(item => item.IdUzytkownika == sesja.idUzytkownika).FirstAsync().Result;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+        public Firma PobierzDaneFirmy(Sesja sesja)
+        {
+            try
+            {
+                return _database.Table<Firma>().Where(item => item.Id == sesja.idUzytkownika).FirstAsync().Result;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+        public async Task ZapiszDaneFirmy(Firma firma)
+        {
+            try
+            {
+                var result = await _database.InsertOrReplaceAsync(firma);
+                if (result != 0)
+                {
+
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Błąd", "Nie udało się zapisać danych użytkownika. Result = 0", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Błąd", $"Wystąpił błąd podczas zapisywania danych użytkownika: {ex.Message}", "OK");
+            }
+        }
 
 
 
@@ -95,7 +173,7 @@ namespace systemogloszeniowyM
             {
                 return null;
             }
-   
+
         }
         public async Task ZapiszDaneUzytkownika(Uzytkownik uzytkownik)
         {
@@ -136,7 +214,82 @@ namespace systemogloszeniowyM
                 await Application.Current.MainPage.DisplayAlert("Błąd", $"Wystąpił błąd podczas zapisywania danych Doswiadczenia: {ex.Message}", "OK");
             }
         }
+        public async Task ZapiszDanejezyku(Jezyk jezyk)
+        {
+            try
+            {
+                var result = await _database.InsertOrReplaceAsync(jezyk);
+                if (result != 0)
+                {
 
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Błąd", "Nie udało się zapisać danych Doswiadczenia. Result = 0", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Błąd", $"Wystąpił błąd podczas zapisywania danych Doswiadczenia: {ex.Message}", "OK");
+            }
+        }
+        public async Task ZapiszDaneUmiejetnosci(Umiejetnosc umiejetnosc)
+        {
+            try
+            {
+                var result = await _database.InsertOrReplaceAsync(umiejetnosc);
+                if (result != 0)
+                {
+
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Błąd", "Nie udało się zapisać danych Doswiadczenia. Result = 0", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Błąd", $"Wystąpił błąd podczas zapisywania danych Doswiadczenia: {ex.Message}", "OK");
+            }
+        }
+        public async Task ZapiszDaneWyksztalcenia(Wyksztalcenie wyksztalcenie)
+        {
+            try
+            {
+                var result = await _database.InsertOrReplaceAsync(wyksztalcenie);
+                if (result != 0)
+                {
+
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Błąd", "Nie udało się zapisać danych Doswiadczenia. Result = 0", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Błąd", $"Wystąpił błąd podczas zapisywania danych Doswiadczenia: {ex.Message}", "OK");
+            }
+        }
+        public async Task ZapiszDaneKursu(Kurs kurs)
+        {
+            try
+            {
+                var result = await _database.InsertOrReplaceAsync(kurs);
+                if (result != 0)
+                {
+
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Błąd", "Nie udało się zapisać danych Doswiadczenia. Result = 0", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Błąd", $"Wystąpił błąd podczas zapisywania danych Doswiadczenia: {ex.Message}", "OK");
+            }
+        }
 
 
 
@@ -150,14 +303,14 @@ namespace systemogloszeniowyM
         }
         public event EventHandler<string> PobieranieDanychDoswiadczeniaError;
 
-     
+
 
 
     }
     public class InformacjeOUzytkowniku
     {
-        [PrimaryKey,AutoIncrement]
-        public int Id {  get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         public Uzytkownik Uzytkownik { get; set; }
         public List<Wyksztalcenie> Wyksztalcenie { get; set; }
         public List<Umiejetnosc> Umiejetnosci { get; set; }

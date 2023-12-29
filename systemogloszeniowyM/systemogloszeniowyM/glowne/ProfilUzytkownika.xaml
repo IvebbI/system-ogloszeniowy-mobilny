@@ -9,7 +9,7 @@
 
 
 
-                <Frame BackgroundColor="LightGreen" CornerRadius="20">
+                <Frame BackgroundColor="LightGreen" CornerRadius="20" x:Name="frameDaneuzytkownika" IsVisible="false">
                     <StackLayout>
 
 
@@ -67,13 +67,14 @@
                     </StackLayout>
                 </Frame>
 
-                <Frame BackgroundColor="LightGreen" CornerRadius="20">
+                <Frame BackgroundColor="LightGreen" CornerRadius="20" x:Name="FrameDoswiadczenie" IsVisible="false">
                     <StackLayout>
 
 
                         <StackLayout x:Name="DoswiadczenieUzytkownika" IsVisible="true">
-                            <Label Text="Stanowisko:" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
-                            <Image Source="{Binding Stanowisko}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" HorizontalOptions="Center"/>
+                            <Label Text="Doświadczenie" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center"/>
+                            <Label Text="Stanowisko:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Stanowisko}"/>
                             <Label Text="Nazwa Firmy:" FontAttributes="Bold"/>
                             <Label Text="{Binding NazwaFirmy}"/>
                             <Label Text="Lokalizacja:" FontAttributes="Bold"/>
@@ -101,6 +102,137 @@
                             <Entry x:Name="ObowiazkiEntry" Text="{Binding Obowiazki}" />
                             <Button Text="Anuluj" BackgroundColor="Beige" CornerRadius="20" Clicked="AnulujD"/>
                             <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="PotwierdzEdytacjeD"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="LightGreen" CornerRadius="20" x:Name="FrameWyksztalcenie" IsVisible="false">
+                    <StackLayout>
+                        <StackLayout x:Name="WyksztalcenieUzytkownika" IsVisible="true">
+                            <Label Text="Wyksztalcenie" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center"/>
+                            <Label Text="Stanowisko:" FontAttributes="Bold"/>
+                            <Label Text="{Binding NazwaSzkoly}"/>
+                            <Label Text="Nazwa Firmy:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Miejscowosc}"/>
+                            <Label Text="Lokalizacja:" FontAttributes="Bold"/>
+                            <Label Text="{Binding PoziomWyksztalcenia}"/>
+                            <Label Text="Okres zatrudnienia od:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Kierunek}"/>
+                            <Label Text="Okres zatrudnienia do:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Label Text="{Binding UczestniczylOd}" />
+                            <Label Text="Obowiązki:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Label Text="{Binding UczestniczylDo}" />
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="przyciskdoedytacjeW_Clicked"/>
+                        </StackLayout>
+                        <StackLayout x:Name="WyksztalcenieUzytkownikaFormularz" IsVisible="false">
+                            <Label Text="Nazwa Szkoły:" FontAttributes="Bold"/>
+                            <Entry x:Name="NazwaSzkolyEntry" Text="{Binding NazwaSzkoly}"/>
+                            <Label Text="Miejscowość:" FontAttributes="Bold"/>
+                            <Entry x:Name="MiejscowoscEntry" Text="{Binding Miejscowosc}"/>
+                            <Label Text="Poziom Wykształcenia:" FontAttributes="Bold"/>
+                            <Entry x:Name="PoziomWyksztalceniaEntry" Text="{Binding PoziomWyksztalcenia}"/>
+                            <Label Text="Kierunek:" FontAttributes="Bold"/>
+                            <Entry x:Name="KierunekEntry" Text="{Binding Kierunek}"/>
+                            <Label Text="Uczestniczył od:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Entry x:Name="UczestniczyłODEntry" Text="{Binding UczestniczylOd}"/>
+                            <Label Text="Uczestniczyl do:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Entry x:Name="UczestniczylDo" Text="{Binding UczestniczylDo}" />
+                            <Button Text="Anuluj" BackgroundColor="Beige" CornerRadius="20" Clicked="AnulujW"/>
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="PotwierdzEdytacjeW"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                
+                <Frame BackgroundColor="LightGreen" CornerRadius="20" x:Name="frameKurs" IsVisible="false">
+                    <StackLayout>
+                        <StackLayout x:Name="KursUzytkownika" IsVisible="true">
+                            <Label Text="Kurs" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center"/>
+                            <Label Text="Nazwa Szkolenia:" FontAttributes="Bold"/>
+                            <Label Text="{Binding NazwaSzkolenia}"/>
+                            <Label Text="Organizator:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Organizator}"/>
+                            <Label Text="Data kursu:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Data}"/>
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="przyciskdoedytacjeK_Clicked"/>
+                        </StackLayout>
+                        <StackLayout x:Name="KursUzytkownikaFormularz" IsVisible="false">
+                            <Label Text="Nazwa Szkolenia:" FontAttributes="Bold"/>
+                            <Entry x:Name="NazwaSzkoleniaEntry" Text="{Binding NazwaSzkolenia}"/>
+                            <Label Text="Organizator:" FontAttributes="Bold"/>
+                            <Entry x:Name="OrganizatorEntry" Text="{Binding Organizator}"/>
+                            <Label Text="Data kursu:" FontAttributes="Bold"/>
+                            <Entry x:Name="DataKursuEntry" Text="{Binding Data}"/>
+                            <Button Text="Anuluj" BackgroundColor="Beige" CornerRadius="20" Clicked="AnulujK"/>
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="PotwierdzEdytacjeK"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="LightGreen" CornerRadius="20" x:Name="frameJezyk" IsVisible="false">
+                    <StackLayout>
+                        <StackLayout x:Name="JezykUzytkownika" IsVisible="true">
+                            <Label Text="Język" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center"/>
+                            <Label Text="Nazwa Języka:" FontAttributes="Bold"/>
+                            <Label Text="{Binding NazwaJezyka}"/>
+                            <Label Text="Poziom:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Poziom}"/>
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="przyciskdoedytacjeJ_Clicked"/>
+                        </StackLayout>
+                        <StackLayout x:Name="JezykUzytkownikaFormularz" IsVisible="false">
+                            <Label Text="Nazwa Języka:" FontAttributes="Bold"/>
+                            <Entry x:Name="NazwaJezykaEntry" Text="{Binding NazwaJezyka}"/>
+                            <Label Text="Poziom:" FontAttributes="Bold"/>
+                            <Entry x:Name="PoziomEntry" Text="{Binding Poziom}"/>
+                            <Button Text="Anuluj" BackgroundColor="Beige" CornerRadius="20" Clicked="AnulujJ"/>
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="PotwierdzEdytacjeJ"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="LightGreen" CornerRadius="20" x:Name="frameUmiejetnosci" IsVisible="false">
+                    <StackLayout>
+                        <StackLayout x:Name="UmiejetnoscUzytkownika" IsVisible="true">
+                            <Label Text="Umiejętność" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center"/>
+                            <Label Text="Umiejętność:" FontAttributes="Bold"/>
+                            <Label Text="{Binding NazwaUmiejetnosci}"/>
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="przyciskdoedytacjeU_Clicked"/>
+                        </StackLayout>
+                        <StackLayout x:Name="UmiejetnoscUzytkownikaFormularz" IsVisible="false">
+                            <Label Text="Umiejętnośći:" FontAttributes="Bold"/>
+                            <Entry x:Name="UmiejetnosciEntry" Text="{Binding NazwaUmiejetnosci}"/>
+                            <Button Text="Anuluj" BackgroundColor="Beige" CornerRadius="20" Clicked="AnulujU"/>
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="PotwierdzEdytacjeU"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <!--firma-->
+                <Frame BackgroundColor="LightGreen" CornerRadius="20" x:Name="FirmaDane" IsVisible="false">
+                    <StackLayout>
+
+
+                        <StackLayout x:Name="FirmaDanePodstawowe" IsVisible="true">
+                            <Label Text="Dane Firmy" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                            <Image Source="{Binding LinkDoZdjecia}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" HorizontalOptions="Center"/>
+                            <Label Text="Email Firmy:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Email}"/>
+                            <Label Text="Nazwa Firmy:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Nazwa}"/>
+                            <Label Text="Adres Firmy:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Adres}"/>
+                            <Label Text="Strona Internetowa Firmy:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Label Text="{Binding StronaInternetowa}" />
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="przyciskdoedytacjeFirma_Clicked"/>
+                        </StackLayout>
+                        <StackLayout x:Name="FirmaDanePodstawoweFormularz" IsVisible="false">
+                            <Label Text="Link do zdjęcia:" FontAttributes="Bold"/>
+                            <Entry x:Name="LinkDoZdjeciaEntryy" Text="{Binding LinkDoZdjecia}"/>
+                            <Label Text="Email:" FontAttributes="Bold"/>
+                            <Entry x:Name="EmailFirmaEntry" Text="{Binding Email}"/>
+                            <Label Text="Nazwa Firmy:" FontAttributes="Bold"/>
+                            <Entry x:Name="NazwaFirmaEntry" Text="{Binding Nazwa}"/>
+                            <Label Text="Adres Firmy:" FontAttributes="Bold"/>
+                            <Entry x:Name="AdresFirmyEntry" Text="{Binding Adres}"/>
+                            <Label Text="Strona Internetowa Firmy:" FontAttributes="Bold" Margin="0,20,10,0"/>
+                            <Entry x:Name="StronaInternetowaEntry" Text="{Binding StronaInternetowa}"/>
+                            <Button Text="Anuluj" BackgroundColor="Beige" CornerRadius="20" Clicked="AnulujF"/>
+                            <Button Text="Edytuj Dane" BackgroundColor="Beige" CornerRadius="20" Clicked="PotwierdzEdytacjeFirma"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
