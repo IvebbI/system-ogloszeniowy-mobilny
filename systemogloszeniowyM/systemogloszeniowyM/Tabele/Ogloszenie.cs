@@ -16,13 +16,14 @@ namespace systemogloszeniowyM.Tabele
         public string WymiarEtatu { get; set; }
         public string RodzajPracy { get; set; }
         public string Wynagrodzenie { get;set; }
-        public DateTime DniPracy { get; set; }
-        public DateTime Godzinypracy { get; set; }
-        public DateTime DataWaznosci { get; set; }
+        public string DniPracy { get; set; }
+        public string Godzinypracy { get; set; }
+        public string DataWaznosci { get; set; }
         public string Kategoria { get; set; }
         public string ZakresObowiazkow { get; set; }
         public string OferowaneBenefity { get; set; }
         public string Wymagania { get; set; }
         public string Informacje { get; set; }
+
     }
 }

@@ -294,6 +294,12 @@ namespace systemogloszeniowyM
 
 
 
+        public async Task<List<Ogloszenie>> PobierzWszystkieOgloszeniaAsync()
+        {
+            return await _database.Table<Ogloszenie>().ToListAsync();
+        }
+
+
 
 
 
@@ -303,6 +309,11 @@ namespace systemogloszeniowyM
         }
         public event EventHandler<string> PobieranieDanychDoswiadczeniaError;
 
+        public async void DodajOgloszenie(Sesja sesja, Ogloszenie ogloszenie)
+        {
+            ogloszenie.Idfirmy = sesja.idUzytkownika;
+            await _database.InsertAsync(ogloszenie);
+        }
 
 
 
