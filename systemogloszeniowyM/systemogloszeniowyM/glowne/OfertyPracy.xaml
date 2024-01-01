@@ -2,29 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="systemogloszeniowyM.glowne.OfertyPracy">
-    <ListView x:Name="ListaOgloszen">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout>
-                        <Label Text="{Binding Nazwa}" FontAttributes="Bold" />
-                        <Label Text="{Binding PoziomStanowiska}" />
-                        <Label Text="{Binding RodzajUmowy}" />
-                        <Label Text="{Binding WymiarEtatu}" />
-                        <Label Text="{Binding RodzajPracy}" />
-                        <Label Text="{Binding Wynagrodzenie}" />
-                        <Label Text="{Binding DniPracy}" />
-                        <Label Text="{Binding Godzinypracy}" />
-                        <Label Text="{Binding DataWaznosci}" />
-                        <Label Text="{Binding Kategoria}" />
-                        <Label Text="{Binding ZakresObowiazkow}" />
-                        <Label Text="{Binding OferowaneBenefity}" />
-                        <Label Text="{Binding Wymagania}" />
-                        <Label Text="{Binding Informacje}" />
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <StackLayout x:Name="MainStackLayout">
+
+    </StackLayout>
 
 </ContentPage>

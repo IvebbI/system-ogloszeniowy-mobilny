@@ -300,6 +300,22 @@ namespace systemogloszeniowyM
         }
 
 
+        public List<(Ogloszenie, Firma)> PobierzOgloszeniaIFirmy()
+        {
+
+            var ogloszenia = _database.Table<Ogloszenie>().ToListAsync().Result;
+            var firmy = _database.Table<Firma>().ToListAsync().Result;
+
+            // Łączysz ogłoszenia i firmy
+            var wynik = new List<(Ogloszenie, Firma)>();
+            foreach (var ogloszenie in ogloszenia)
+            {
+                var firma = firmy.FirstOrDefault(f => f.Id == ogloszenie.Idfirmy);
+                wynik.Add((ogloszenie, firma));
+            }
+
+            return wynik;
+        }
 
 
 
@@ -309,10 +325,10 @@ namespace systemogloszeniowyM
         }
         public event EventHandler<string> PobieranieDanychDoswiadczeniaError;
 
-        public async void DodajOgloszenie(Sesja sesja, Ogloszenie ogloszenie)
+        public int DodajOgloszenie(Sesja sesja, Ogloszenie ogloszenie)
         {
             ogloszenie.Idfirmy = sesja.idUzytkownika;
-            await _database.InsertAsync(ogloszenie);
+            return _database.InsertAsync(ogloszenie).Result;
         }
 
 

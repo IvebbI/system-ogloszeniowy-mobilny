@@ -38,35 +38,32 @@ namespace systemogloszeniowyM.glowne
             }
         }
 
-        private async  void Dodaj_Ogloszenie(object sender, EventArgs e)
+        private void Dodaj_Ogloszenie(object sender, EventArgs e)
         {
             try
             {
-                _sesja = await _dataAccess.PobierzSesje();
-            Ogloszenie noweOgloszenie = new Ogloszenie
-            {
-                Idfirmy = _sesja.Id,
-                Nazwa = NazwaOfertyEntry.Text,
-                PoziomStanowiska = PoziomStanowiskaEntry.Text,
-                RodzajUmowy = RodzajUmowyEntry.Text,
-                WymiarEtatu = WymiarEtatuEntry.Text,
-                RodzajPracy = RodzajPracyEntry.Text,
-                Wynagrodzenie = WynagrodzenieEntry.Text,
-                DniPracy = DniPracyEntry.Text, 
-                Godzinypracy = GodzinyPracyEntry.Text,
-                DataWaznosci = DataWaznosciEntry.Text,
-                Kategoria = KategoriaEntry.Text,
-                ZakresObowiazkow = ZakresObowiazkowEntry.Text,
-                OferowaneBenefity = OferowaneBenefityEntry.Text,
-                Wymagania = WymaganiaEntry.Text,
-                Informacje = InformacjeEntry.Text
-            };
-            _sesja =  _dataAccess.PobierzSesje().Result;
+                Ogloszenie noweOgloszenie = new Ogloszenie
+                {
+                    Idfirmy = _sesja.Id,
+                    Nazwa = NazwaOfertyEntry.Text,
+                    PoziomStanowiska = PoziomStanowiskaEntry.Text,
+                    RodzajUmowy = RodzajUmowyEntry.Text,
+                    WymiarEtatu = WymiarEtatuEntry.Text,
+                    RodzajPracy = RodzajPracyEntry.Text,
+                    Wynagrodzenie = WynagrodzenieEntry.Text,
+                    DniPracy = DniPracyEntry.Text,
+                    Godzinypracy = GodzinyPracyEntry.Text,
+                    DataWaznosci = DataWaznosciEntry.Text,
+                    Kategoria = KategoriaEntry.Text,
+                    ZakresObowiazkow = ZakresObowiazkowEntry.Text,
+                    OferowaneBenefity = OferowaneBenefityEntry.Text,
+                    Wymagania = WymaganiaEntry.Text,
+                    Informacje = InformacjeEntry.Text
+                };
+                _dataAccess.DodajOgloszenie(_sesja, noweOgloszenie);
 
-            _dataAccess.DodajOgloszenie(_sesja, noweOgloszenie);
-
-            PrzyciskDodaj.IsVisible = true;
-            FormularzDodawanieOgloszenia.IsVisible = false;
+                PrzyciskDodaj.IsVisible = true;
+                FormularzDodawanieOgloszenia.IsVisible = false;
             }
             catch (Exception ex)
             {
