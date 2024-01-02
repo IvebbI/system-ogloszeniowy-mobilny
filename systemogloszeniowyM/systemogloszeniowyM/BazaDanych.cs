@@ -294,28 +294,19 @@ namespace systemogloszeniowyM
 
 
 
-        public async Task<List<Ogloszenie>> PobierzWszystkieOgloszeniaAsync()
+
+        public List<Ogloszenie> PobierzOgloszneia()
         {
-            return await _database.Table<Ogloszenie>().ToListAsync();
+            return _database.Table<Ogloszenie>().ToListAsync().Result;
+            
+        }
+        public List<Firma> PobierzFirme()
+        {
+            return _database.Table<Firma>().ToListAsync().Result;
+
         }
 
 
-        public List<(Ogloszenie, Firma)> PobierzOgloszeniaIFirmy()
-        {
-
-            var ogloszenia = _database.Table<Ogloszenie>().ToListAsync().Result;
-            var firmy = _database.Table<Firma>().ToListAsync().Result;
-
-            // Łączysz ogłoszenia i firmy
-            var wynik = new List<(Ogloszenie, Firma)>();
-            foreach (var ogloszenie in ogloszenia)
-            {
-                var firma = firmy.FirstOrDefault(f => f.Id == ogloszenie.Idfirmy);
-                wynik.Add((ogloszenie, firma));
-            }
-
-            return wynik;
-        }
 
 
 
@@ -345,4 +336,35 @@ namespace systemogloszeniowyM
         public List<Jezyk> Jezyki { get; set; }
         public List<Doswiadczenie> Doswiadczenie { get; set; }
     }
+    public class WyswietlanieOgloszeniaIFirmy
+    {
+        public Ogloszenie ogloszenie { get; set; }
+        public Firma firma {  get; set; }
+        public string Nazwa { get; set; }
+        public string PoziomStanowiska { get; set; }
+        public string RodzajPracy { get; set; }
+        public string Wynagrodzenie { get; set; }
+        public string Kategoria { get; set; }
+        public string NazwaFirmy { get; set; }
+        public string Adres { get; set; }
+        public WyswietlanieOgloszeniaIFirmy(Ogloszenie ogloszenie,Firma firma)
+        {
+          this.ogloszenie= ogloszenie;
+            this.firma= firma;
+            Kategoria = ogloszenie.Kategoria;
+            Nazwa = ogloszenie.Nazwa;
+            PoziomStanowiska=ogloszenie.PoziomStanowiska;
+            RodzajPracy = ogloszenie.RodzajPracy;
+            Wynagrodzenie = ogloszenie.Wynagrodzenie;
+            Kategoria=ogloszenie.Kategoria;
+            NazwaFirmy = firma.Nazwa;
+            Adres= firma.Adres;
+        }
+        public WyswietlanieOgloszeniaIFirmy()
+        {
+
+        }
+    }
+
+
 }
