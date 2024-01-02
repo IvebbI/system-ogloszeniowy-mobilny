@@ -140,7 +140,7 @@ namespace systemogloszeniowyM
             {
                 await DisplayAlert("Sukces!", "Kod weryfikacyjny poprawny. Konto zostało zarejestrowane.", "OK");
                 await App.DataAccess.StworzFirme(firma);
-                await Navigation.PushAsync(new Nawigacja());
+                await Navigation.PushAsync(new LoginPageF());
             }
             else
             {

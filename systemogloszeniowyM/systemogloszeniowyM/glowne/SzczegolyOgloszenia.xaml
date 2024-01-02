@@ -2,9 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="systemogloszeniowyM.glowne.SzczegolyOgloszenia">
-    <ContentPage.Content>
-        <StackLayout>
 
-        </StackLayout>
-    </ContentPage.Content>
+    <StackLayout>
+        <Label x:Name="NazwaLabel" FontSize="Title" TextColor="Black" />
+        <Label x:Name="PoziomStanowiskaLabel" FontSize="Large" TextColor="Black" />
+        <Label x:Name="RodzajPracyLabel" FontSize="Large" TextColor="Black" />
+        <Label x:Name="WynagrodzenieLabel" FontSize="Large" TextColor="Black" />
+        <Label x:Name="KategoriaLabel" FontSize="Large" TextColor="Black" />
+        <Label x:Name="NazwaFirmyLabel" FontSize="Large" TextColor="Black" />
+        <Label x:Name="AdresLabel" FontSize="Large" TextColor="Black" />
+        <Label x:Name="InformacjeLabel" FontSize="Large" TextColor="Black" />
+    </StackLayout>
+
 </ContentPage>

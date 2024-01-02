@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="systemogloszeniowyM.glowne.OfertyPracy">
-    <ListView x:Name="ListaOgloszen" RowHeight="150" SelectionMode="None">
+    <ListView x:Name="ListaOgloszen" RowHeight="480" SelectionMode="None">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Frame CornerRadius="2" BackgroundColor="#994D1C" Margin="5">
+                    <Frame  BackgroundColor="#994D1C" Margin="5" CornerRadius="20">
                         <StackLayout>
                             <Label Text="{Binding Nazwa}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
                             <Label Text="{Binding PoziomStanowiska}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
@@ -15,7 +15,7 @@
                             <Label Text="{Binding Kategoria}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
                             <Label Text="{Binding NazwaFirmy}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
                             <Label Text="{Binding Adres}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
-                            <Button Text="Szczegóły" Clicked="ZobaczOgloszenie" CommandParameter="{Binding ogloszenie}"/>
+                            <Button Text="Szczegóły" Clicked="ZobaczOgloszenie" CommandParameter="{Binding ogloszenie}" CornerRadius="20"/>
                         </StackLayout>
                     </Frame>
                 </ViewCell>

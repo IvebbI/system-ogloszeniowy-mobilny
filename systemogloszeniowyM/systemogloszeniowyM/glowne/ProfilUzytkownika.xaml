@@ -223,8 +223,6 @@
                         <StackLayout x:Name="FirmaDanePodstawoweFormularz" IsVisible="false">
                             <Label Text="Link do zdjęcia:" FontAttributes="Bold"/>
                             <Entry x:Name="LinkDoZdjeciaEntryy" Text="{Binding LinkDoZdjecia}"/>
-                            <Label Text="Email:" FontAttributes="Bold"/>
-                            <Entry x:Name="EmailFirmaEntry" Text="{Binding Email}"/>
                             <Label Text="Nazwa Firmy:" FontAttributes="Bold"/>
                             <Entry x:Name="NazwaFirmaEntry" Text="{Binding Nazwa}"/>
                             <Label Text="Adres Firmy:" FontAttributes="Bold"/>

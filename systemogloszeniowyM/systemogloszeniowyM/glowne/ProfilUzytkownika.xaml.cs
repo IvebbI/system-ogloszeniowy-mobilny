@@ -410,7 +410,6 @@ namespace systemogloszeniowyM.glowne
 
                 if (informacje != null)
                 {
-                    informacje.email = EmailFirmaEntry.Text;
                     informacje.Nazwa = NazwaFirmaEntry.Text;
                     informacje.Adres=AdresFirmyEntry.Text;
                     informacje.StronaInternetowa=StronaInternetowaEntry.Text;

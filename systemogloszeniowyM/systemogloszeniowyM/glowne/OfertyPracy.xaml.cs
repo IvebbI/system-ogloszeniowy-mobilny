@@ -31,7 +31,7 @@ namespace systemogloszeniowyM.glowne
         }
         private void ZobaczOgloszenie(object sender, EventArgs e)
         {
-            Ogloszenie item = ((Button)sender).CommandParameter as Ogloszenie;
+            WyswietlanieOgloszeniaIFirmy item = ((Button)sender).CommandParameter as WyswietlanieOgloszeniaIFirmy;
             Navigation.PushAsync(new SzczegolyOgloszenia(item));
         }
     }
