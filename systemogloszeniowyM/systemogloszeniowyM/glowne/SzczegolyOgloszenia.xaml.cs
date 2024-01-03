@@ -2,17 +2,20 @@
 using systemogloszeniowyM.Tabele;
 using Xamarin.Forms;
 using systemogloszeniowyM.Tabele;
+using System.IO;
+
 namespace systemogloszeniowyM.glowne
 {
     public partial class SzczegolyOgloszenia : ContentPage
     {
-        private WyswietlanieOgloszeniaIFirmy _wyswietlaneOgloszenie;
         private readonly BazaDanych _dataAccess;
+        private WyswietlanieOgloszeniaIFirmy _wyswietlaneOgloszenie;
         private Sesja _sesja;
         public SzczegolyOgloszenia(WyswietlanieOgloszeniaIFirmy ogloszenie)
         {
             InitializeComponent();
             WypelnijDane(ogloszenie);
+            _dataAccess = new BazaDanych(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "BazaDanych.db3"));
             Inicjalizacja();
         }
 
@@ -33,6 +36,7 @@ namespace systemogloszeniowyM.glowne
             AdresLabel.Text = ogloszenie.Adres;
             Wymagania.Text = ogloszenie.Wymagania;
             InformacjeLabel.Text = ogloszenie.Informacje;
+            _wyswietlaneOgloszenie = ogloszenie; 
         }
         private async void Inicjalizacja()
         {
@@ -50,31 +54,55 @@ namespace systemogloszeniowyM.glowne
                 }
             }
         }
-        private void OnAplikujClicked(object sender, EventArgs e)
+        private async void OnAplikujClicked(object sender, EventArgs e)
         {
             try
             {
-                _sesja = _dataAccess.PobierzSesje().Result;
+                _sesja = await _dataAccess.PobierzSesje();
+
                 if (_sesja != null)
                 {
                     DisplayAlert("test", _sesja.Id.ToString(), "ok");
-                    DisplayAlert("test1", _wyswietlaneOgloszenie.Id.ToString(), "ok");
-                    Aplikacja nowaAplikacja = new Aplikacja
-                    {
-                        IdUzytkownika = _sesja.Id,
-                        IdOgloszenia = _wyswietlaneOgloszenie.Id,
-                        StatusAplikacje = "tak"
-                    };
 
+                    if (_wyswietlaneOgloszenie != null)
+                    {
+                        DisplayAlert("test1", _wyswietlaneOgloszenie.Id.ToString(), "ok");
+
+                        bool czyAplikowal = await _dataAccess.CzyUzytkownikAplikowal(_sesja.Id, _wyswietlaneOgloszenie.Id);
+
+                        if (czyAplikowal)
+                        {
+                            DisplayAlert("Informacja", "Już aplikowałeś do tego ogłoszenia.", "OK");
+                        }
+                        else
+                        {
+                            Aplikacja nowaAplikacja = new Aplikacja
+                            {
+                                IdUzytkownika = _sesja.Id,
+                                IdOgloszenia = _wyswietlaneOgloszenie.Id,
+                                StatusAplikacje = "tak"
+                            };
+
+                            await _dataAccess.DodajAplikacje(nowaAplikacja);
+
+                            DisplayAlert("Sukces", "Aplikacja została wysłana.", "OK");
+                        }
+                    }
+                    else
+                    {
+                        DisplayAlert("Błąd", "_wyswietlaneOgloszenie jest równy null.", "OK");
+                    }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                DisplayAlert("blad", ex.ToString(), "ok");
+                DisplayAlert("Błąd", ex.ToString(), "OK");
             }
-            
-          
         }
+
+
+
+
 
         private void Anuluj(object sender, EventArgs e)
         {

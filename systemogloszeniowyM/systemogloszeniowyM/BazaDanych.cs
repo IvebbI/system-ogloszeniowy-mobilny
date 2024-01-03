@@ -321,7 +321,20 @@ namespace systemogloszeniowyM
             ogloszenie.Idfirmy = sesja.idUzytkownika;
             return _database.InsertAsync(ogloszenie).Result;
         }
+        public async Task<bool> CzyUzytkownikAplikowal(int idUzytkownika, int idOgloszenia)
+        {
 
+            var aplikacja = await _database.Table<Aplikacja>()
+                .Where(a => a.IdUzytkownika == idUzytkownika && a.IdOgloszenia == idOgloszenia)
+                .FirstOrDefaultAsync();
+
+
+            return aplikacja != null;
+        }
+        public async Task DodajAplikacje(Aplikacja aplikacja)
+        {
+            await _database.InsertAsync(aplikacja);
+        }
 
 
     }
