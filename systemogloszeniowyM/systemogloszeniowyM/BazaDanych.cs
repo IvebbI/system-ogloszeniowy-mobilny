@@ -339,7 +339,7 @@ namespace systemogloszeniowyM
     public class WyswietlanieOgloszeniaIFirmy
     {
         public Ogloszenie ogloszenie { get; set; }
-        public Firma firma {  get; set; }
+        public Firma firma { get; set; }
         public string Nazwa { get; set; }
         public string PoziomStanowiska { get; set; }
         public string RodzajPracy { get; set; }
@@ -347,18 +347,38 @@ namespace systemogloszeniowyM
         public string Kategoria { get; set; }
         public string NazwaFirmy { get; set; }
         public string Adres { get; set; }
-        public WyswietlanieOgloszeniaIFirmy(Ogloszenie ogloszenie,Firma firma)
+        public string RodzajUmowy { get; set; }
+        public string WymiarEtatu { get; set; }
+        public string DniPracy { get; set; }
+        public string GodzinyPracy { get; set; }
+        public string DataWaznosci { get; set; }
+        public string ZakresObowiazkow { get; set; }
+        public string Wymagania { get; set; }
+        public string Informacje { get; set; }
+        public string OferowaneBenefity { get; set; }
+        public int Id { get; set; }
+        public WyswietlanieOgloszeniaIFirmy(Ogloszenie ogloszenie, Firma firma)
         {
-          this.ogloszenie= ogloszenie;
-            this.firma= firma;
+            Id = ogloszenie.Id;
+            this.ogloszenie = ogloszenie;
+            this.firma = firma;
             Kategoria = ogloszenie.Kategoria;
             Nazwa = ogloszenie.Nazwa;
-            PoziomStanowiska=ogloszenie.PoziomStanowiska;
+            PoziomStanowiska = ogloszenie.PoziomStanowiska;
             RodzajPracy = ogloszenie.RodzajPracy;
             Wynagrodzenie = ogloszenie.Wynagrodzenie;
-            Kategoria=ogloszenie.Kategoria;
+            Kategoria = ogloszenie.Kategoria;
             NazwaFirmy = firma.Nazwa;
-            Adres= firma.Adres;
+            Adres = firma.Adres;
+            RodzajUmowy = ogloszenie.RodzajUmowy;
+            WymiarEtatu = ogloszenie.WymiarEtatu;
+            DniPracy = ogloszenie.DniPracy;
+            GodzinyPracy = ogloszenie.Godzinypracy;
+            ZakresObowiazkow = ogloszenie.ZakresObowiazkow;
+            OferowaneBenefity = ogloszenie.OferowaneBenefity;
+            Wymagania = ogloszenie.Wymagania;
+            Informacje = ogloszenie.Informacje;
+
         }
         public WyswietlanieOgloszeniaIFirmy()
         {

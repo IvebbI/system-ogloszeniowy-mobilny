@@ -3,15 +3,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="systemogloszeniowyM.glowne.SzczegolyOgloszenia">
 
-    <StackLayout>
-        <Label x:Name="NazwaLabel" FontSize="Title" TextColor="Black" />
-        <Label x:Name="PoziomStanowiskaLabel" FontSize="Large" TextColor="Black" />
-        <Label x:Name="RodzajPracyLabel" FontSize="Large" TextColor="Black" />
-        <Label x:Name="WynagrodzenieLabel" FontSize="Large" TextColor="Black" />
-        <Label x:Name="KategoriaLabel" FontSize="Large" TextColor="Black" />
-        <Label x:Name="NazwaFirmyLabel" FontSize="Large" TextColor="Black" />
-        <Label x:Name="AdresLabel" FontSize="Large" TextColor="Black" />
-        <Label x:Name="InformacjeLabel" FontSize="Large" TextColor="Black" />
-    </StackLayout>
-
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Nazwa:"/>
+            <Label x:Name="NazwaLabel" FontSize="Title" TextColor="Black" />
+            <Label Text="Stanowisko:"/>
+            <Label x:Name="PoziomStanowiskaLabel" FontSize="Large" TextColor="Black" />
+            <Label Text="Rodzaj umowy:"/>
+            <Label x:Name="RodzajUmowy" FontSize="Large" TextColor="Black" />
+            <Label Text="Wymiar Etatu:"/>
+            <Label x:Name="WymiarEtatu" FontSize="Large" TextColor="Black" />
+            <Label Text="Rodzaj Pracy:"/>
+            <Label x:Name="RodzajPracyLabel" FontSize="Large" TextColor="Black" />
+            <Label Text="Wynagrodzenia:"/>
+            <Label x:Name="WynagrodzenieLabel" FontSize="Large" TextColor="Black" />
+            <Label Text="Dni pracy:"/>
+            <Label x:Name="Dnipracy" FontSize="Large" TextColor="Black" />
+            <Label Text="GodzinyPracy"/>
+            <Label x:Name="GodzinyPracy" FontSize="Large" TextColor="Black" />
+            <Label Text="Kategoria"/>
+            <Label x:Name="KategoriaLabel" FontSize="Large" TextColor="Black" />
+            <Label Text="Obowiązki:"/>
+            <Label x:Name="ZakresObowiazkow" FontSize="Large" TextColor="Black" />
+            <Label Text="Oferowane Benefity:"/>
+            <Label x:Name="OferowaneBenefity" FontSize="Large" TextColor="Black" />
+            <Label Text="Wymagania:"/>
+            <Label x:Name="Wymagania" FontSize="Large" TextColor="Black" />
+            <Label Text="Dane Firmy"/>
+            <Label Text="Nazwa Firmy:"/>
+            <Label x:Name="NazwaFirmyLabel" FontSize="Large" TextColor="Black" />
+            <Label Text="Adres Firmy:"/>
+            <Label x:Name="AdresLabel" FontSize="Large" TextColor="Black" />
+            <Label Text="Informacje o firmie:"/>
+            <Label x:Name="InformacjeLabel" FontSize="Large" TextColor="Black" />
+            <Button Text="Aplikuj" Clicked="OnAplikujClicked" IsVisible="false" x:Name="ButtonAplikuj"/>
+            <Button Text="Anuluj" Clicked="Anuluj"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

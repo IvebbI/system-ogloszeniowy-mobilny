@@ -15,7 +15,7 @@
                             <Label Text="{Binding Kategoria}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
                             <Label Text="{Binding NazwaFirmy}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
                             <Label Text="{Binding Adres}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
-                            <Button Text="Szczegóły" Clicked="ZobaczOgloszenie" CommandParameter="{Binding ogloszenie}" CornerRadius="20"/>
+                            <Button Text="Szczegóły" Clicked="ZobaczOgloszenie" CommandParameter="{Binding .}" CornerRadius="20"/>
                         </StackLayout>
                     </Frame>
                 </ViewCell>

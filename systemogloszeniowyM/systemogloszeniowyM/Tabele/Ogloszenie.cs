@@ -24,6 +24,5 @@ namespace systemogloszeniowyM.Tabele
         public string OferowaneBenefity { get; set; }
         public string Wymagania { get; set; }
         public string Informacje { get; set; }
-
     }
 }
