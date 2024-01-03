@@ -20,6 +20,25 @@ namespace systemogloszeniowyM.glowne
 			InitializeComponent();
             _dataAccess = new BazaDanych(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "BazaDanych.db3"));
             Inicjalizacja();
+            _sesja = _dataAccess.PobierzSesje().Result;
+
+            if (_sesja != null)
+            {
+                int idfirmy = _sesja.Id;
+
+                List<WyswietlanieOgloszeniaIFirmy> WyswietlanieOfert = new List<WyswietlanieOgloszeniaIFirmy>();
+
+                foreach (var item in App.DataAccess.PobierzFirme())
+                {
+                    foreach (var itemm in App.DataAccess.PobierzOgloszeniaFirma(idfirmy)) 
+                    {
+                        WyswietlanieOfert.Add(new WyswietlanieOgloszeniaIFirmy(itemm, item));
+                    }
+                }
+
+                ListaOgloszen.ItemsSource = WyswietlanieOfert;
+            }
+
         }
         private async void Inicjalizacja()
         {

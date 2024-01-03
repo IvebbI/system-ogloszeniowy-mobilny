@@ -292,6 +292,11 @@ namespace systemogloszeniowyM
         }
 
 
+        public List<Ogloszenie> PobierzOgloszeniaFirma(int idFirmy)
+        {
+            return _database.Table<Ogloszenie>().Where(ogloszenie => ogloszenie.Idfirmy == idFirmy).ToListAsync().Result;
+        }
+
 
 
 

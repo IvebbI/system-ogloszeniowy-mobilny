@@ -62,11 +62,8 @@ namespace systemogloszeniowyM.glowne
 
                 if (_sesja != null)
                 {
-                    DisplayAlert("test", _sesja.Id.ToString(), "ok");
-
                     if (_wyswietlaneOgloszenie != null)
                     {
-                        DisplayAlert("test1", _wyswietlaneOgloszenie.Id.ToString(), "ok");
 
                         bool czyAplikowal = await _dataAccess.CzyUzytkownikAplikowal(_sesja.Id, _wyswietlaneOgloszenie.Id);
 

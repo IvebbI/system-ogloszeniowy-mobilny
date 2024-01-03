@@ -38,6 +38,8 @@
             <Label x:Name="InformacjeLabel" FontSize="Large" TextColor="Black" />
             <Button Text="Aplikuj" Clicked="OnAplikujClicked" IsVisible="false" x:Name="ButtonAplikuj"/>
             <Button Text="Anuluj" Clicked="Anuluj"/>
+           
         </StackLayout>
+        
     </ScrollView>
 </ContentPage>
