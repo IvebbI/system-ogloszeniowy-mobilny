@@ -5,9 +5,29 @@
     <ScrollView>
         <StackLayout>
 
-            <Button Text="Dodaj Ogłoszenie" HorizontalOptions="Center" Clicked="OdpalFormularzDoDodawaniaOgloszenia" x:Name="PrzyciskDodaj"/>
- 
-    <StackLayout x:Name="FormularzDodawanieOgloszenia" IsVisible="false">
+            <Button Text="Dodaj Ogłoszenie" HorizontalOptions="Center" Clicked="OdpalFormularzDoDodawaniaOgloszenia" x:Name="PrzyciskDodaj" IsVisible="true" BackgroundColor="GreenYellow" CornerRadius="20" Margin="20"/>
+            <ListView x:Name="ListaOgloszen" RowHeight="520" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame  BackgroundColor="LightGreen" Margin="5" CornerRadius="20">
+                                <StackLayout>
+                                    <Label Text="{Binding Nazwa}" FontSize="20" TextColor="Black" Margin="10"/>
+                                    <Label Text="{Binding PoziomStanowiska}" FontSize="20" TextColor="Black" Margin="10"/>
+                                    <Label Text="{Binding RodzajPracy}" FontSize="20" TextColor="Black" Margin="10"/>
+                                    <Label Text="{Binding Wynagrodzenie}" FontSize="20" TextColor="Black" Margin="10"/>
+                                    <Label Text="{Binding Kategoria}" FontSize="20" TextColor="Black" Margin="10"/>
+                                    <Label Text="{Binding NazwaFirmy}" FontSize="20" TextColor="Black" Margin="10"/>
+                                    <Label Text="{Binding Adres}" FontSize="20" TextColor="Black" Margin="10"/>
+                                    <Button Text="Edytuj" Clicked="Edytuj_Ogloszenie" CommandParameter="{Binding .}" CornerRadius="20" BackgroundColor="Beige"/>
+                                    <Button Text="Usuń"  Clicked="Usun_Ogloszenie" CornerRadius="20" BackgroundColor="Beige"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout x:Name="FormularzDodawanieOgloszenia" IsVisible="false">
         <Label Text="Nazwa:" FontAttributes="Bold"/>
         <Entry x:Name="NazwaOfertyEntry"/>
 
@@ -51,27 +71,7 @@
         <Entry x:Name="InformacjeEntry"/>
             <Button Text="Anuluj" Clicked="AnulujDodawanieOgloszenia"/>
             <Button Text="Dodaj Ogłoszenie" BackgroundColor="Beige" CornerRadius="20" Clicked="Dodaj_Ogloszenie"/>
-                <ListView x:Name="ListaOgloszen" RowHeight="480" SelectionMode="None">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Frame  BackgroundColor="#994D1C" Margin="5" CornerRadius="20">
-                                    <StackLayout>
-                                        <Label Text="{Binding Nazwa}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
-                                        <Label Text="{Binding PoziomStanowiska}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
-                                        <Label Text="{Binding RodzajPracy}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
-                                        <Label Text="{Binding Wynagrodzenie}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
-                                        <Label Text="{Binding Kategoria}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
-                                        <Label Text="{Binding NazwaFirmy}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
-                                        <Label Text="{Binding Adres}" FontSize="20" TextColor="#F5CCA0" Margin="10"/>
-                                        <Button Text="Edytuj"   CornerRadius="20"/>
-                                        <Button Text="Usuń"   CornerRadius="20"/>
-                                    </StackLayout>
-                                </Frame>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+  
             </StackLayout>
 
     </StackLayout>

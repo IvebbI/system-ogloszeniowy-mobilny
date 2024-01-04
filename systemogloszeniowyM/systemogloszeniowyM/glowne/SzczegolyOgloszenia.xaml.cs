@@ -1,7 +1,7 @@
 ﻿using System;
 using systemogloszeniowyM.Tabele;
 using Xamarin.Forms;
-using systemogloszeniowyM.Tabele;
+
 using System.IO;
 
 namespace systemogloszeniowyM.glowne

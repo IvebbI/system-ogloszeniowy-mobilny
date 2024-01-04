@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="systemogloszeniowyM.glowne.EdytujOgloszenie"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Nazwa:" FontAttributes="Bold"/>
+                <Entry x:Name="NazwaOfertyEntry"/>
+
+                <Label Text="Poziom Stanowiska:" FontAttributes="Bold"/>
+                <Entry x:Name="PoziomStanowiskaEntry"/>
+
+                <Label Text="Rodzaj Umowy:" FontAttributes="Bold"/>
+                <Entry x:Name="RodzajUmowyEntry"/>
+
+                <Label Text="Wymiar Etatu:" FontAttributes="Bold"/>
+                <Entry x:Name="WymiarEtatuEntry" />
+
+                <Label Text="Rodzaj Pracy:" FontAttributes="Bold"/>
+                <Entry x:Name="RodzajPracyEntry" />
+
+                <Label Text="Wynagrodzenie:" FontAttributes="Bold"/>
+                <Entry x:Name="WynagrodzenieEntry" />
+
+                <Label Text="Dni Pracy:" FontAttributes="Bold"/>
+                <Entry x:Name="DniPracyEntry" />
+
+                <Label Text="Godziny Pracy:" FontAttributes="Bold"/>
+                <Entry  x:Name="GodzinyPracyEntry"/>
+
+                <Label Text="Data Ważności:" FontAttributes="Bold"/>
+                <Entry  x:Name="DataWaznosciEntry" />
+
+                <Label Text="Kategoria:" FontAttributes="Bold"/>
+                <Entry x:Name="KategoriaEntry" />
+
+                <Label Text="Zakres Obowiązków:" FontAttributes="Bold"/>
+                <Entry x:Name="ZakresObowiazkowEntry"/>
+
+                <Label Text="Oferowane Benefity:" FontAttributes="Bold"/>
+                <Entry x:Name="OferowaneBenefityEntry"/>
+
+                <Label Text="Wymagania:" FontAttributes="Bold"/>
+                <Entry x:Name="WymaganiaEntry"/>
+
+                <Label Text="Informacje:" FontAttributes="Bold"/>
+                <Entry x:Name="InformacjeEntry"/>
+                <Button Text="Anuluj" Clicked="Anuluj_Clicked"/>
+                <Button Text="Edytuj Ogloszenia" Clicked="Edytuj_Clicked" BackgroundColor="Beige" CornerRadius="20" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

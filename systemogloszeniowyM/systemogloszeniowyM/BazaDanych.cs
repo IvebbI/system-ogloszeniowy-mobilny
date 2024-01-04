@@ -297,6 +297,7 @@ namespace systemogloszeniowyM
             return _database.Table<Ogloszenie>().Where(ogloszenie => ogloszenie.Idfirmy == idFirmy).ToListAsync().Result;
         }
 
+    
 
 
 
@@ -312,7 +313,19 @@ namespace systemogloszeniowyM
         }
 
 
+        public Firma PobierzFirme(int id)
+        {
+            try
+            {
+                return _database.Table<Firma>().Where(item => item.Id == id).FirstAsync().Result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
 
+
+        }
 
 
         public async Task<Firma> ZalogujFirme(string email, string haslo)
@@ -340,6 +353,25 @@ namespace systemogloszeniowyM
         {
             await _database.InsertAsync(aplikacja);
         }
+        public void UsunOgloszenie(int ogloszenieId)
+        {
+            var ogloszenie = _database.Table<Ogloszenie>().Where(o => o.Id == ogloszenieId).FirstOrDefaultAsync().Result;
+
+            if (ogloszenie != null)
+            {
+                _database.DeleteAsync(ogloszenie);
+            }
+            else
+            {
+                throw new Exception($"Ogłoszenie o ID {ogloszenieId} nie zostało znalezione.");
+            }
+        }
+
+        public async Task EdytujOgloszenie(Ogloszenie ogloszenie)
+        {
+            await _database.InsertOrReplaceAsync(ogloszenie);
+        }
+
 
 
     }
