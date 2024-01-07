@@ -9,7 +9,7 @@
             <Label Text="Podaj Email:"/>
             <Entry x:Name="emailEntry"/>
             <Label Text="Podaj Hasło"/>
-            <Entry x:Name="hasloEntry"/>
+            <Entry x:Name="hasloEntry" IsPassword="True"/>
             <StackLayout Margin="0,50,0,0">
                 <Button Text="Zaloguj" Clicked="Zaloguj"/>
                 <Label Text="Nie masz konta? Zarejestruj się!" Margin="0,50,0,0" HorizontalOptions="Center"/>

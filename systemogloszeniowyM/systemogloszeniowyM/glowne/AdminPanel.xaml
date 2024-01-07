@@ -4,7 +4,7 @@
              x:Class="systemogloszeniowyM.glowne.DodajOgloszenie">
     <ScrollView>
         <StackLayout>
-
+            <Button Text="Wyloguj się" HorizontalOptions="Center" Clicked="Wyloguj" IsVisible="true" BackgroundColor="LightBlue" CornerRadius="20" Margin="20"/>
             <Button Text="Dodaj Ogłoszenie" HorizontalOptions="Center" Clicked="OdpalFormularzDoDodawaniaOgloszenia" x:Name="PrzyciskDodaj" IsVisible="true" BackgroundColor="GreenYellow" CornerRadius="20" Margin="20"/>
             <ListView x:Name="ListaOgloszen" RowHeight="520" SelectionMode="None">
                 <ListView.ItemTemplate>
@@ -28,52 +28,52 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackLayout x:Name="FormularzDodawanieOgloszenia" IsVisible="false">
-        <Label Text="Nazwa:" FontAttributes="Bold"/>
-        <Entry x:Name="NazwaOfertyEntry"/>
+                <Label Text="Nazwa:" FontAttributes="Bold"/>
+                <Entry x:Name="NazwaOfertyEntry"/>
 
-        <Label Text="Poziom Stanowiska:" FontAttributes="Bold"/>
-        <Entry x:Name="PoziomStanowiskaEntry"/>
+                <Label Text="Poziom Stanowiska:" FontAttributes="Bold"/>
+                <Entry x:Name="PoziomStanowiskaEntry"/>
 
-        <Label Text="Rodzaj Umowy:" FontAttributes="Bold"/>
-        <Entry x:Name="RodzajUmowyEntry"/>
+                <Label Text="Rodzaj Umowy:" FontAttributes="Bold"/>
+                <Entry x:Name="RodzajUmowyEntry"/>
 
-        <Label Text="Wymiar Etatu:" FontAttributes="Bold"/>
-        <Entry x:Name="WymiarEtatuEntry" />
+                <Label Text="Wymiar Etatu:" FontAttributes="Bold"/>
+                <Entry x:Name="WymiarEtatuEntry" />
 
-        <Label Text="Rodzaj Pracy:" FontAttributes="Bold"/>
-        <Entry x:Name="RodzajPracyEntry" />
+                <Label Text="Rodzaj Pracy:" FontAttributes="Bold"/>
+                <Entry x:Name="RodzajPracyEntry" />
 
-        <Label Text="Wynagrodzenie:" FontAttributes="Bold"/>
-        <Entry x:Name="WynagrodzenieEntry" />
+                <Label Text="Wynagrodzenie:" FontAttributes="Bold"/>
+                <Entry x:Name="WynagrodzenieEntry" />
 
-        <Label Text="Dni Pracy:" FontAttributes="Bold"/>
-        <Entry x:Name="DniPracyEntry" />
+                <Label Text="Dni Pracy:" FontAttributes="Bold"/>
+                <Entry x:Name="DniPracyEntry" />
 
-        <Label Text="Godziny Pracy:" FontAttributes="Bold"/>
-        <Entry  x:Name="GodzinyPracyEntry"/>
+                <Label Text="Godziny Pracy:" FontAttributes="Bold"/>
+                <Entry  x:Name="GodzinyPracyEntry"/>
 
-        <Label Text="Data Ważności:" FontAttributes="Bold"/>
+                <Label Text="Data Ważności:" FontAttributes="Bold"/>
                 <Entry  x:Name="DataWaznosciEntry" />
 
-        <Label Text="Kategoria:" FontAttributes="Bold"/>
-        <Entry x:Name="KategoriaEntry" />
+                <Label Text="Kategoria:" FontAttributes="Bold"/>
+                <Entry x:Name="KategoriaEntry" />
 
-        <Label Text="Zakres Obowiązków:" FontAttributes="Bold"/>
-        <Entry x:Name="ZakresObowiazkowEntry"/>
+                <Label Text="Zakres Obowiązków:" FontAttributes="Bold"/>
+                <Entry x:Name="ZakresObowiazkowEntry"/>
 
-        <Label Text="Oferowane Benefity:" FontAttributes="Bold"/>
-        <Entry x:Name="OferowaneBenefityEntry"/>
+                <Label Text="Oferowane Benefity:" FontAttributes="Bold"/>
+                <Entry x:Name="OferowaneBenefityEntry"/>
 
-        <Label Text="Wymagania:" FontAttributes="Bold"/>
-        <Entry x:Name="WymaganiaEntry"/>
+                <Label Text="Wymagania:" FontAttributes="Bold"/>
+                <Entry x:Name="WymaganiaEntry"/>
 
-        <Label Text="Informacje:" FontAttributes="Bold"/>
-        <Entry x:Name="InformacjeEntry"/>
-            <Button Text="Anuluj" Clicked="AnulujDodawanieOgloszenia"/>
-            <Button Text="Dodaj Ogłoszenie" BackgroundColor="Beige" CornerRadius="20" Clicked="Dodaj_Ogloszenie"/>
-  
+                <Label Text="Informacje:" FontAttributes="Bold"/>
+                <Entry x:Name="InformacjeEntry"/>
+                <Button Text="Anuluj" Clicked="AnulujDodawanieOgloszenia"/>
+                <Button Text="Dodaj Ogłoszenie" BackgroundColor="Beige" CornerRadius="20" Clicked="Dodaj_Ogloszenie"/>
+
             </StackLayout>
-
-    </StackLayout>
+        </StackLayout>
+ 
     </ScrollView>
 </ContentPage>

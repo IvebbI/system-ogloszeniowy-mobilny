@@ -7,7 +7,7 @@
         <StackLayout>
             <Label HorizontalOptions="Center" FontSize="Large" Text="Strona Rejestracji Uzytkownika"/>
             <Label Text="Podaj Email:"/>
-            <Entry x:Name="emailEntry"/>
+            <Entry x:Name="emailEntry" />
             <Label Text="Podaj Hasło"/>
             <Entry x:Name="hasloEntry" IsPassword="True"/>
             <Label Text="Powtorz Haslo"/>

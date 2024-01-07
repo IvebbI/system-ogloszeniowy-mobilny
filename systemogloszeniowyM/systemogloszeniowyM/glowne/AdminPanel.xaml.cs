@@ -136,5 +136,10 @@ namespace systemogloszeniowyM.glowne
             PrzyciskDodaj.IsVisible = false;
 
         }
+
+        private void Wyloguj(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
+        }
     }
 }
